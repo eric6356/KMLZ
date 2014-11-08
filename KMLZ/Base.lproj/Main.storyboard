@@ -57,7 +57,7 @@
         <scene sceneID="Hng-Fg-KtB">
             <objects>
                 <navigationController id="uEI-e7-XMh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="孔" image="kong" selectedImage="kong" id="RtV-Pb-9bU"/>
+                    <tabBarItem key="tabBarItem" title="孔" image="KMLZ" selectedImage="KMLZ" id="RtV-Pb-9bU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VNK-iC-GzK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -207,7 +207,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="kong" width="40" height="34"/>
+        <image name="KMLZ" width="30" height="30"/>
         <image name="lao" width="39" height="39"/>
         <image name="meng" width="38" height="36"/>
         <image name="zhuang" width="40" height="39"/>

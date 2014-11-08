@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "KMLZ.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "meng.png"
+      "filename" : "KMLZ@2x.png"
     },
     {
       "idiom" : "universal",
