@@ -24,6 +24,9 @@
 		073099281A05D37C00043E2E /* mTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073099271A05D37C00043E2E /* mTableViewController.m */; };
 		0730992B1A05D54B00043E2E /* KMLZzwl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0730992A1A05D54B00043E2E /* KMLZzwl.m */; };
 		0730992E1A05D8DD00043E2E /* lTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0730992D1A05D8DD00043E2E /* lTableViewController.m */; };
+		07E5B0D91A0E07E4009E105F /* kmlzTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E5B0D81A0E07E4009E105F /* kmlzTableViewCell.m */; };
+		07E5B0DD1A0FB072009E105F /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E5B0DB1A0FB072009E105F /* settingViewController.m */; };
+		07E5B0DE1A0FB072009E105F /* settingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E5B0DC1A0FB072009E105F /* settingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,11 @@
 		0730992A1A05D54B00043E2E /* KMLZzwl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLZzwl.m; sourceTree = "<group>"; };
 		0730992C1A05D8DD00043E2E /* lTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lTableViewController.h; sourceTree = "<group>"; };
 		0730992D1A05D8DD00043E2E /* lTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lTableViewController.m; sourceTree = "<group>"; };
+		07E5B0D71A0E07E4009E105F /* kmlzTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kmlzTableViewCell.h; sourceTree = "<group>"; };
+		07E5B0D81A0E07E4009E105F /* kmlzTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kmlzTableViewCell.m; sourceTree = "<group>"; };
+		07E5B0DA1A0FB072009E105F /* settingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingViewController.h; sourceTree = "<group>"; };
+		07E5B0DB1A0FB072009E105F /* settingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingViewController.m; sourceTree = "<group>"; };
+		07E5B0DC1A0FB072009E105F /* settingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = settingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,21 +120,11 @@
 		073098A41A04FDC200043E2E /* KMLZ */ = {
 			isa = PBXGroup;
 			children = (
+				07E5B0E01A0FC03D009E105F /* Fantastic4 */,
+				07E5B0DF1A0FC00D009E105F /* KMLZ */,
 				073098A91A04FDC200043E2E /* AppDelegate.h */,
 				073098AA1A04FDC200043E2E /* AppDelegate.m */,
 				073098B21A04FDC200043E2E /* Main.storyboard */,
-				0730991A1A05CE5800043E2E /* KMLZTableViewController.h */,
-				073099201A05D0BB00043E2E /* kTableViewController.h */,
-				0730992C1A05D8DD00043E2E /* lTableViewController.h */,
-				0730992D1A05D8DD00043E2E /* lTableViewController.m */,
-				073099211A05D0BB00043E2E /* kTableViewController.m */,
-				073099261A05D37C00043E2E /* mTableViewController.h */,
-				073099271A05D37C00043E2E /* mTableViewController.m */,
-				0730991B1A05CE5800043E2E /* KMLZTableViewController.m */,
-				073099111A05363600043E2E /* zwViewController.h */,
-				073099121A05363600043E2E /* zwViewController.m */,
-				0730991D1A05CF8800043E2E /* zTableViewController.h */,
-				0730991E1A05CF8800043E2E /* zTableViewController.m */,
 				073098B51A04FDC200043E2E /* Images.xcassets */,
 				073098B71A04FDC200043E2E /* LaunchScreen.xib */,
 				073098A51A04FDC200043E2E /* Supporting Files */,
@@ -176,6 +174,37 @@
 			);
 			name = Model;
 			path = KMLZ;
+			sourceTree = "<group>";
+		};
+		07E5B0DF1A0FC00D009E105F /* KMLZ */ = {
+			isa = PBXGroup;
+			children = (
+				07E5B0D71A0E07E4009E105F /* kmlzTableViewCell.h */,
+				07E5B0D81A0E07E4009E105F /* kmlzTableViewCell.m */,
+				0730991A1A05CE5800043E2E /* KMLZTableViewController.h */,
+				0730991B1A05CE5800043E2E /* KMLZTableViewController.m */,
+				073099111A05363600043E2E /* zwViewController.h */,
+				073099121A05363600043E2E /* zwViewController.m */,
+				07E5B0DA1A0FB072009E105F /* settingViewController.h */,
+				07E5B0DB1A0FB072009E105F /* settingViewController.m */,
+				07E5B0DC1A0FB072009E105F /* settingViewController.xib */,
+			);
+			name = KMLZ;
+			sourceTree = "<group>";
+		};
+		07E5B0E01A0FC03D009E105F /* Fantastic4 */ = {
+			isa = PBXGroup;
+			children = (
+				073099201A05D0BB00043E2E /* kTableViewController.h */,
+				0730992C1A05D8DD00043E2E /* lTableViewController.h */,
+				0730992D1A05D8DD00043E2E /* lTableViewController.m */,
+				073099211A05D0BB00043E2E /* kTableViewController.m */,
+				073099261A05D37C00043E2E /* mTableViewController.h */,
+				073099271A05D37C00043E2E /* mTableViewController.m */,
+				0730991D1A05CF8800043E2E /* zTableViewController.h */,
+				0730991E1A05CF8800043E2E /* zTableViewController.m */,
+			);
+			name = Fantastic4;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +291,7 @@
 				073098B41A04FDC200043E2E /* Main.storyboard in Resources */,
 				073098B91A04FDC200043E2E /* LaunchScreen.xib in Resources */,
 				073098B61A04FDC200043E2E /* Images.xcassets in Resources */,
+				07E5B0DE1A0FB072009E105F /* settingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +314,9 @@
 				0730991C1A05CE5800043E2E /* KMLZTableViewController.m in Sources */,
 				0730992B1A05D54B00043E2E /* KMLZzwl.m in Sources */,
 				073099281A05D37C00043E2E /* mTableViewController.m in Sources */,
+				07E5B0D91A0E07E4009E105F /* kmlzTableViewCell.m in Sources */,
 				073099131A05363600043E2E /* zwViewController.m in Sources */,
+				07E5B0DD1A0FB072009E105F /* settingViewController.m in Sources */,
 				073099251A05D13800043E2E /* KMLZzwm.m in Sources */,
 				073098D71A0504EF00043E2E /* KMLZzw.m in Sources */,
 				073098AB1A04FDC200043E2E /* AppDelegate.m in Sources */,

@@ -7,11 +7,42 @@
 //
 
 #import "zwViewController.h"
+#import "settingViewController.h"
 
 @interface zwViewController ()
+@property (nonatomic, strong) UIMenuController *popupMenu;
+@property (nonatomic, strong) UIBarButtonItem *settingButton;
+@property (nonatomic, strong) settingViewController * settingVC;
+@property (nonatomic) BOOL menuShown;
 @end
 
 @implementation zwViewController
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"点击空白");
+    [super touchesBegan:touches withEvent:event];
+    if (_menuShown) {
+        self.navigationItem.rightBarButtonItem.title = @"设置";
+        _zwTextView.font = [_zwTextView.font fontWithSize:self.settingVC.fontSize];
+        _menuShown = NO;
+    }
+}
+
+- (void) showSetting:(id) sender {
+//    _zwTextView.font = [_zwTextView.font fontWithSize:20];
+    if (_menuShown) {
+        NSLog(@"closeSetting");
+        self.navigationItem.rightBarButtonItem.title = @"设置";
+        [self.settingVC.view removeFromSuperview];
+        _zwTextView.font = [_zwTextView.font fontWithSize:self.settingVC.fontSize];
+        _menuShown = NO;
+    } else{
+        NSLog(@"showSetting");
+        self.navigationItem.rightBarButtonItem.title = @"完成";
+        [self.view addSubview:_settingVC.view];
+        _menuShown = YES;
+    }
+}
 
 - (instancetype)initWithText:(NSString *) text{
     self = [super init];
@@ -20,14 +51,20 @@
         _zwTextView = [[UITextView alloc]initWithFrame:frm];
         _zwTextView.editable = NO;
         _zwTextView.text = text;
+        _zwTextView.font = [_zwTextView.font fontWithSize:15];
         [self.view addSubview:_zwTextView];
+        _settingVC = [[settingViewController alloc]init];
         self.view.backgroundColor = [UIColor greenColor];
+        _menuShown = NO;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.settingButton = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(showSetting:)];
+    self.popupMenu = [[UIMenuController alloc]init];
+    self.navigationItem.rightBarButtonItem = self.settingButton;
     // Do any additional setup after loading the view.
 }
 

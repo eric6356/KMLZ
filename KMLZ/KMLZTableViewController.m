@@ -8,21 +8,24 @@
 
 #import "KMLZTableViewController.h"
 #import "zwViewController.h"
+#import "kmlzTableViewCell.h"
 
 @interface KMLZTableViewController ()
-
 @end
 
 @implementation KMLZTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class]
+    [self.tableView registerClass:[kmlzTableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
     if (!_zw) {
         _zw = [[KMLZzw alloc]init];
     }
     
+    
+    
+//    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -56,15 +59,16 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
+- (kmlzTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    kmlzTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
                                                             forIndexPath:indexPath];
     int idx = 0;
     for (int i = 0; i<indexPath.section; i++) {
         idx += [[self.zw.sections objectAtIndex:i]integerValue];
     }
-    cell.text = [self.zw.titleArray objectAtIndex:(idx + indexPath.row)];
-    NSLog(@"idx: %d", idx+indexPath.row);
+    cell.textLabel.text = [self.zw.titleArray objectAtIndex:(idx + indexPath.row)];
+    cell.detailTextLabel.text = [self.zw.pvArray objectAtIndex:(idx + indexPath.row)];
+    NSLog(@"index: %d", idx+indexPath.row);
     // Configure the cell...
     
     return cell;
@@ -80,7 +84,9 @@
         idx += [[self.zw.sections objectAtIndex:i]integerValue];
     }
     zwViewController *zwVC = [[zwViewController alloc]initWithText: [self.zw.zwArray objectAtIndex:(idx+indexPath.row)]];
-    zwVC.title = [self.zw.titleArray objectAtIndex:(idx+indexPath.row)];
+    NSString *sct = [self.zw.sectionTitle objectAtIndex:indexPath.section];
+    NSString *zwt =  [self.zw.titleArray objectAtIndex:(idx+indexPath.row)];
+    zwVC.title = [NSString stringWithFormat:@"%@%@%@", sct, @"·", zwt];
     [self.navigationController pushViewController:zwVC animated:YES];
 }
 /*

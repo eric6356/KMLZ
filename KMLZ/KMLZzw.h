@@ -11,6 +11,7 @@
 @interface KMLZzw : NSObject
 @property (nonatomic, strong) NSArray *sections;
 @property (nonatomic, strong) NSArray *sectionTitle;
+@property (nonatomic, strong) NSArray *pvArray;
 @property (nonatomic, strong) NSArray *zwArray;
 @property (nonatomic, strong) NSArray *titleArray;
 @end
