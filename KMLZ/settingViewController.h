@@ -11,6 +11,7 @@
 @protocol settingVCDelegate <NSObject>
 
 - (void) fontsizeChangeTO:(CGFloat)fontsize;
+- (void) themeChangeTo:(NSInteger)theme;
 
 @end
 

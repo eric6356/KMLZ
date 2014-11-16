@@ -10,6 +10,7 @@
 
 @interface settingViewController ()
 @property (weak, nonatomic) IBOutlet UISlider *fontSizeSlider;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *themeSegment;
 
 @end
 
@@ -18,10 +19,14 @@
     [self.delegate fontsizeChangeTO:self.fontSize];
     [self saveData];
 }
+- (IBAction)themeChanged:(UISegmentedControl *)sender {
+    [self.delegate themeChangeTo:[sender selectedSegmentIndex]];
+    [self saveData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 131)];
+    [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 160)];
     [self readData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -38,17 +43,26 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setFloat:self.fontSizeSlider.value forKey:@"fontsize"];
+    [defaults setInteger:[self.themeSegment selectedSegmentIndex] forKey:@"theme"];
     
     [defaults synchronize];
 }
 
 - (void)readData{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     CGFloat fz = [defaults floatForKey:@"fontsize"];
     if (fz) {
         self.fontSizeSlider.value = [defaults floatForKey:@"fontsize"];
     } else {
         self.fontSizeSlider.value = 15;
+    }
+    
+    NSInteger thm = [defaults integerForKey:@"theme"];
+    if (thm) {
+        self.themeSegment.selectedSegmentIndex = thm;
+    } else {
+        self.themeSegment.selectedSegmentIndex = 0;
     }
 }
 /*
