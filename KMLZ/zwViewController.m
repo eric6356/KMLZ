@@ -51,11 +51,19 @@
 - (instancetype)initWithText:(NSString *) text{
     self = [super init];
     if (self) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        CGFloat fz = [defaults floatForKey:@"fontsize"];
+        
         CGRect frm = self.view.frame;
         _zwTextView = [[UITextView alloc]initWithFrame:frm];
         _zwTextView.editable = NO;
         _zwTextView.text = text;
-        _zwTextView.font = [_zwTextView.font fontWithSize:15];
+        if (fz) {
+            _zwTextView.font = [_zwTextView.font fontWithSize:fz];
+        }else{
+            _zwTextView.font = [_zwTextView.font fontWithSize:15];
+        }
+        
         [self.view addSubview:_zwTextView];
         _settingVC = [[settingViewController alloc]init];
         _settingVC.delegate = self;

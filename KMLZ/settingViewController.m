@@ -16,10 +16,13 @@
 @implementation settingViewController
 - (IBAction)fontSizeChanged:(id)sender {
     [self.delegate fontsizeChangeTO:self.fontSize];
+    [self saveData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 131)];
+    [self readData];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -29,6 +32,24 @@
 }
 - (CGFloat)fontSize{
     return self.fontSizeSlider.value;
+}
+
+- (void)saveData{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setFloat:self.fontSizeSlider.value forKey:@"fontsize"];
+    
+    [defaults synchronize];
+}
+
+- (void)readData{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    CGFloat fz = [defaults floatForKey:@"fontsize"];
+    if (fz) {
+        self.fontSizeSlider.value = [defaults floatForKey:@"fontsize"];
+    } else {
+        self.fontSizeSlider.value = 15;
+    }
 }
 /*
 #pragma mark - Navigation
