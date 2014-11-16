@@ -15,6 +15,7 @@
 
 @implementation settingViewController
 - (IBAction)fontSizeChanged:(id)sender {
+    [self.delegate fontsizeChangeTO:self.fontSize];
 }
 
 - (void)viewDidLoad {

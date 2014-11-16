@@ -15,8 +15,9 @@
 @end
 
 @interface settingViewController : UIViewController{
-    NSObject<settingVCDelegate> *zwVC;
+    id<settingVCDelegate> _delegate;
 }
 @property (nonatomic) CGFloat fontSize;
-@property (nonatomic, weak)NSObject *zwVC;
+@property (nonatomic, strong)id delegate;
 @end
+

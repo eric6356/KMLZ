@@ -58,7 +58,7 @@
         _zwTextView.font = [_zwTextView.font fontWithSize:15];
         [self.view addSubview:_zwTextView];
         _settingVC = [[settingViewController alloc]init];
-        _settingVC.zwVC = self;
+        _settingVC.delegate = self;
         self.view.backgroundColor = [UIColor greenColor];
         _menuShown = NO;
     }
