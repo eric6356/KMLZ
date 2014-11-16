@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface settingViewController : UIViewController
+@protocol settingVCDelegate <NSObject>
+
+- (void) fontsizeChangeTO:(CGFloat)fontsize;
+
+@end
+
+@interface settingViewController : UIViewController{
+    NSObject<settingVCDelegate> *zwVC;
+}
 @property (nonatomic) CGFloat fontSize;
+@property (nonatomic, weak)NSObject *zwVC;
 @end

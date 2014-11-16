@@ -9,7 +9,7 @@
 #import "zwViewController.h"
 #import "settingViewController.h"
 
-@interface zwViewController ()
+@interface zwViewController () <settingVCDelegate>
 @property (nonatomic, strong) UIMenuController *popupMenu;
 @property (nonatomic, strong) UIBarButtonItem *settingButton;
 @property (nonatomic, strong) settingViewController * settingVC;
@@ -18,15 +18,19 @@
 
 @implementation zwViewController
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"点击空白");
-    [super touchesBegan:touches withEvent:event];
-    if (_menuShown) {
-        self.navigationItem.rightBarButtonItem.title = @"设置";
-        _zwTextView.font = [_zwTextView.font fontWithSize:self.settingVC.fontSize];
-        _menuShown = NO;
-    }
+- (void)fontsizeChangeTO:(CGFloat)fontsize{
+    _zwTextView.font = [_zwTextView.font fontWithSize:fontsize];
 }
+
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//    NSLog(@"点击空白");
+//    [super touchesBegan:touches withEvent:event];
+//    if (_menuShown) {
+//        self.navigationItem.rightBarButtonItem.title = @"设置";
+//        _zwTextView.font = [_zwTextView.font fontWithSize:self.settingVC.fontSize];
+//        _menuShown = NO;
+//    }
+//}
 
 - (void) showSetting:(id) sender {
 //    _zwTextView.font = [_zwTextView.font fontWithSize:20];
@@ -54,6 +58,7 @@
         _zwTextView.font = [_zwTextView.font fontWithSize:15];
         [self.view addSubview:_zwTextView];
         _settingVC = [[settingViewController alloc]init];
+        _settingVC.zwVC = self;
         self.view.backgroundColor = [UIColor greenColor];
         _menuShown = NO;
     }

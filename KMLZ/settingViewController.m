@@ -15,7 +15,6 @@
 
 @implementation settingViewController
 - (IBAction)fontSizeChanged:(id)sender {
-    
 }
 
 - (void)viewDidLoad {
