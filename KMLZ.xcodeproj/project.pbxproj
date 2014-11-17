@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				073098CE1A0500FB00043E2E /* Model */,
-				073098A41A04FDC200043E2E /* KMLZ */,
+				073098A41A04FDC200043E2E /* Controller */,
 				073098C11A04FDC300043E2E /* KMLZTests */,
 				073098A31A04FDC200043E2E /* Products */,
 			);
@@ -117,7 +117,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		073098A41A04FDC200043E2E /* KMLZ */ = {
+		073098A41A04FDC200043E2E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				07E5B0E01A0FC03D009E105F /* Fantastic4 */,
@@ -129,6 +129,7 @@
 				073098B71A04FDC200043E2E /* LaunchScreen.xib */,
 				073098A51A04FDC200043E2E /* Supporting Files */,
 			);
+			name = Controller;
 			path = KMLZ;
 			sourceTree = "<group>";
 		};
