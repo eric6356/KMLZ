@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface zwViewController : UIViewController
-@property UITextView *zwTextView;
 - (instancetype)initWithText:(NSString *)text;
+- (void)saveOffset;
 @end

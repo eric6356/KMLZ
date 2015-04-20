@@ -43,7 +43,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     int scs = [self.zw.sections count];
-    NSLog(@"sections:%d", scs);
+//    NSLog(@"sections:%d", scs);
     return scs;
     //    if (scs == 1) {
     //        return 0;
@@ -54,7 +54,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    NSLog(@"%d rows in section %d", [[self.zw.sections objectAtIndex:section]integerValue], section);
+//    NSLog(@"%d rows in section %d", [[self.zw.sections objectAtIndex:section]integerValue], section);
     return [[self.zw.sections objectAtIndex:section]integerValue];
 }
 
@@ -68,7 +68,7 @@
     }
     cell.textLabel.text = [self.zw.titleArray objectAtIndex:(idx + indexPath.row)];
     cell.detailTextLabel.text = [self.zw.pvArray objectAtIndex:(idx + indexPath.row)];
-    NSLog(@"index: %d", idx+indexPath.row);
+//    NSLog(@"index: %d", idx+indexPath.row);
     // Configure the cell...
     
     return cell;

@@ -11,6 +11,7 @@
 @interface settingViewController ()
 @property (weak, nonatomic) IBOutlet UISlider *fontSizeSlider;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *themeSegment;
+@property (nonatomic) CGFloat fontSize;
 
 @end
 
@@ -46,6 +47,8 @@
     [defaults setInteger:[self.themeSegment selectedSegmentIndex] forKey:@"theme"];
     
     [defaults synchronize];
+    
+//    [self.delegate dataSaved];
 }
 
 - (void)readData{

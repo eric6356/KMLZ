@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07191E681A1A533C0016277C /* zwTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07191E671A1A533C0016277C /* zwTextView.m */; };
 		073098A81A04FDC200043E2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 073098A71A04FDC200043E2E /* main.m */; };
 		073098AB1A04FDC200043E2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 073098AA1A04FDC200043E2E /* AppDelegate.m */; };
 		073098B41A04FDC200043E2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073098B21A04FDC200043E2E /* Main.storyboard */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07191E661A1A533C0016277C /* zwTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zwTextView.h; sourceTree = "<group>"; };
+		07191E671A1A533C0016277C /* zwTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zwTextView.m; sourceTree = "<group>"; };
 		073098A21A04FDC200043E2E /* KMLZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMLZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		073098A61A04FDC200043E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		073098A71A04FDC200043E2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -185,6 +188,8 @@
 				0730991A1A05CE5800043E2E /* KMLZTableViewController.h */,
 				0730991B1A05CE5800043E2E /* KMLZTableViewController.m */,
 				073099111A05363600043E2E /* zwViewController.h */,
+				07191E661A1A533C0016277C /* zwTextView.h */,
+				07191E671A1A533C0016277C /* zwTextView.m */,
 				073099121A05363600043E2E /* zwViewController.m */,
 				07E5B0DA1A0FB072009E105F /* settingViewController.h */,
 				07E5B0DB1A0FB072009E105F /* settingViewController.m */,
@@ -318,6 +323,7 @@
 				07E5B0D91A0E07E4009E105F /* kmlzTableViewCell.m in Sources */,
 				073099131A05363600043E2E /* zwViewController.m in Sources */,
 				07E5B0DD1A0FB072009E105F /* settingViewController.m in Sources */,
+				07191E681A1A533C0016277C /* zwTextView.m in Sources */,
 				073099251A05D13800043E2E /* KMLZzwm.m in Sources */,
 				073098D71A0504EF00043E2E /* KMLZzw.m in Sources */,
 				073098AB1A04FDC200043E2E /* AppDelegate.m in Sources */,

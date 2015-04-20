@@ -18,7 +18,6 @@
 @interface settingViewController : UIViewController{
     id<settingVCDelegate> _delegate;
 }
-@property (nonatomic) CGFloat fontSize;
 @property (nonatomic, strong)id delegate;
 @end
 

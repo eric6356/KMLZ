@@ -8,9 +8,10 @@
 
 #import "zwViewController.h"
 #import "settingViewController.h"
+#import "zwTextView.h"
 
-@interface zwViewController () <settingVCDelegate>
-@property (nonatomic, strong) UIMenuController *popupMenu;
+@interface zwViewController () <settingVCDelegate, zwTVDelegate>
+@property zwTextView *zwTextView;
 @property (nonatomic, strong) UIBarButtonItem *settingButton;
 @property (nonatomic, strong) settingViewController * settingVC;
 @property (nonatomic) BOOL menuShown;
@@ -18,12 +19,25 @@
 
 @implementation zwViewController
 
+- (void)saveOffset{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    CGPoint pt = [_zwTextView contentOffset];
+    [defaults setFloat:pt.x forKey:[self.navigationItem.title stringByAppendingString:@"x"]];
+    [defaults setFloat:pt.y forKey:[self.navigationItem.title stringByAppendingString:@"y"]];
+    [defaults synchronize];
+    NSLog(@"saved");
+    
+}
+
 - (void)fontsizeChangeTO:(CGFloat)fontsize{
+    CGPoint pt = [_zwTextView contentOffset];
+    NSLog(@"%f %f", pt.x, pt.y);
     _zwTextView.font = [_zwTextView.font fontWithSize:fontsize];
+    [_zwTextView setContentOffset:pt];
 }
 
 - (void)themeChangeTo:(NSInteger)theme{
-    NSLog(@"%d", theme);
     switch (theme) {
         case 0:
             _zwTextView.backgroundColor = [UIColor whiteColor];
@@ -34,6 +48,12 @@
             break;
     }
 }
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesEnded:touches withEvent:event];
+    NSLog(@"touch ends");
+}
+
 //-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 //    NSLog(@"点击空白");
 //    [super touchesBegan:touches withEvent:event];
@@ -55,7 +75,7 @@
     } else{
         NSLog(@"showSetting");
         self.navigationItem.rightBarButtonItem.title = @"完成";
-        [self.view addSubview:_settingVC.view];
+        [self.view insertSubview:_settingVC.view aboveSubview:self.zwTextView];
         _menuShown = YES;
     }
 }
@@ -69,7 +89,8 @@
         //读取字体大小，赋值给textView
         CGFloat fz = [defaults floatForKey:@"fontsize"];
         CGRect frm = self.view.frame;
-        _zwTextView = [[UITextView alloc]initWithFrame:frm];
+        _zwTextView = [[zwTextView alloc]initWithFrame:frm];
+        _zwTextView.dlgt = self;
         _zwTextView.editable = NO;
         _zwTextView.text = text;
         if (fz) {
@@ -81,10 +102,6 @@
         //读取主题背景
         NSInteger thm = [defaults integerForKey:@"theme"];
         [self themeChangeTo:thm];
-        
-        //阅读进度
-//        [_zwTextView setContentOffset:CGPointMake(0, 500)];
-//        CGPoint offset = CGPointMake(<#CGFloat x#>, <#CGFloat y#>)
         
         [self.view addSubview:_zwTextView];
         _settingVC = [[settingViewController alloc]init];
@@ -98,8 +115,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.settingButton = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(showSetting:)];
-    self.popupMenu = [[UIMenuController alloc]init];
     self.navigationItem.rightBarButtonItem = self.settingButton;
+    self.tabBarController.tabBar.hidden = YES;
     // Do any additional setup after loading the view.
 }
 
@@ -108,8 +125,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    //阅读进度
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    CGFloat x = [defaults floatForKey:[self.navigationItem.title stringByAppendingString:@"x"]];
+    CGFloat y = [defaults floatForKey:[self.navigationItem.title stringByAppendingString:@"y"]];
+    if (y) {
+        [_zwTextView setContentOffset:CGPointMake(x, y)];
+    }
+
+
+//    [[self navigationController]setNavigationBarHidden:YES];
+}
+
 //- (void)viewWillAppear:(BOOL)animated{
-////    self.zwTextView.text = self.zwText;
+//    
 //}
 
 /*
